@@ -1,0 +1,5 @@
+TS01|Cảm biến quang BYD 100-DDT|Mới|Trung Quốc|04/05/2006|Chiếc|MK02|panasonicc1202|1000000|5
+TS02|Máy X. Media P4 2.4 GBhz|Mới|Hàn Quốc|12/04/2010|Cái|MK01|Cảm biến|1000000|5
+TS03|Hamic|Mới|Hàn Quốc|12/04/2010|Cái|MK04|Cảm biến|1000000|1
+TS03|Test|Mới|Hàn Quốc|12/04/2010|Cái|MK04|Cảm biến|1000000|2
+TS04|Máy tính CMS|Mới|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5

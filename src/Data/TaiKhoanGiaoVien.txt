@@ -1,0 +1,6 @@
+giaovien1|12341234|Nguyễn Văn A|Phòng thực hành 1|12/01/2002|Hoạt động|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin
+giaovien2|12341234|Nguyễn Văn B|Phòng thực hành 2|11/02/2003|Hoạt động|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin
+giaovien3|12341234|Nguyễn Văn C|Phòng thực hành 3|04/06/2004|Hoạt động|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin
+giaovien4|12341234|Nguyễn Văn D|Phòng thực hành 4|01/09/2005|Hoạt động|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin
+giaovien5|12341234|Nguyễn Văn E|Phòng thực hành 5|03/11/2006|Khoá|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin
+giaovien6|12341234|Nguyễn Văn F|Phòng thực hành 6|03/11/2005|Hoạt động|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin

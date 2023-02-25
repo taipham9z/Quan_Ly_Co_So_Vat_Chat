@@ -1,0 +1,5 @@
+MK01|Kế hoạch|BP01|Không
+MK02|Hành chính|BP02|Không
+MK03|Phòng CNTT|BP03|Không
+MK04|Văn phòng đoàn|BP04|Tầng 1 - A8
+MK05|Kho lưu trữ trường|BP04|Không
