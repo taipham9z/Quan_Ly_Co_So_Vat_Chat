@@ -6,7 +6,6 @@ import java.util.List;
 
 public class TaiKhoanDAO {
     List<TaiKhoan> taiKhoanList = new ArrayList<>();
-    List<TaiKhoan> taiKhoans;
     public List<TaiKhoan> getTaiKhoanList(){
         return taiKhoanList;
     }
@@ -14,73 +13,14 @@ public class TaiKhoanDAO {
     File file = new File(DATA_FILE_PATH);
     String absolutePath = file.getAbsolutePath();
     public void replaceTaiKhoan(TaiKhoan taiKhoan, int n) throws IOException {
-        BufferedReader reader = null;
-        taiKhoans = new ArrayList<>();
-        try {
-            TaiKhoan x = null;
-            reader = new BufferedReader(new FileReader(absolutePath));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String[] a = line.split("\\|");
-                x = new TaiKhoan(a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
-                taiKhoans.add(x);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        taiKhoans.set(n, taiKhoan);
-        BufferedWriter writer = null;
-        try{
-            File file = new File(absolutePath);
-            //writer = new FileWriter(file, true);
-            writer = new BufferedWriter(new FileWriter(file));
-            for (int i = 0; i < taiKhoans.size(); i++) {
-                String w;
-                if(i==0){
-                    w = taiKhoans.get(i).getTenDangNhap() + "|" + taiKhoans.get(i).getMatKhau()+ "|" + taiKhoans.get(i).getTenGiaoVien() + "|" + taiKhoans.get(i).getPhongQuanLy() + "|" + taiKhoans.get(i).getNgayTao() + "|" + taiKhoans.get(i).getTrangThai() + "|" + taiKhoans.get(i).getNhiemVu();
-                }
-                else{
-                    w =  "\n" + taiKhoans.get(i).getTenDangNhap() + "|" + taiKhoans.get(i).getMatKhau() + "|" + taiKhoans.get(i).getTenGiaoVien()  + "|" + taiKhoans.get(i).getPhongQuanLy() + "|" + taiKhoans.get(i).getNgayTao() + "|" + taiKhoans.get(i).getTrangThai() + "|" + taiKhoans.get(i).getNhiemVu();
-                }
-                writer.write(w);
-            }
-            writer.flush();
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }finally {
-            writer.close();
-        }
+        taiKhoanList.set(n, taiKhoan);
+        writeFile(taiKhoanList, absolutePath);
     }
     public void deleteTaiKhoan(int n) throws IOException {
-        BufferedReader reader = null;
-        taiKhoans = new ArrayList<>();
-        try {
-            TaiKhoan x = null;
-            reader = new BufferedReader(new FileReader(absolutePath));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String[] a = line.split("\\|");
-                x = new TaiKhoan(a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
-                taiKhoans.add(x);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        taiKhoans.remove(n);
+        taiKhoanList.remove(n);
+        writeFile(taiKhoanList, absolutePath);
+    }
+    public void writeFile(List<TaiKhoan> taiKhoans, String absolutePath){
         BufferedWriter writer = null;
         try{
             File file = new File(absolutePath);
@@ -99,10 +39,14 @@ public class TaiKhoanDAO {
         }catch (Exception ex){
             ex.printStackTrace();
         }finally {
-            writer.close();
+            try {
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
-    public void writeFile(TaiKhoan taiKhoan) throws IOException {
+    public void writeFileAppend(TaiKhoan taiKhoan) throws IOException {
         BufferedWriter writer = null;
         BufferedReader reader = null;
         try {

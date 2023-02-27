@@ -1,2 +1,4 @@
-Phòng thực hành
-Phòng học lý thuyết
+tên phòng|mã phòng|tên giáo viên|vị trí
+tên|mã phòng|tên giáo viên|vị trí
+Phòng thực hành 1|201|giaovien1|Tầng 2 - A1
+Phòng thực hành 2|202|giaovien2|Tầng 2 - A1

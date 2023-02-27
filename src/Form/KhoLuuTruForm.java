@@ -13,7 +13,7 @@ import Class.KhoLuuTru;
 import Class.KhoLuuTruDAO;
 
 
-public class KhoLuuTruF extends JFrame{
+public class KhoLuuTruForm extends JFrame{
 
     private JTable tblKhoLuuTru;
     private JTextField txtMaKho;
@@ -30,7 +30,7 @@ public class KhoLuuTruF extends JFrame{
     static KhoLuuTruDAO khoLuuTruDAO;
     KhoLuuTru khoLuuTruSelected;
 
-    public KhoLuuTruF() {
+    public KhoLuuTruForm() {
         setContentPane(mainPanel);
         setSize(1500, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -70,22 +70,22 @@ public class KhoLuuTruF extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (txtMaKho.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Mã kho không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Mã kho không được bỏ trống");
                     return;
                 }
                 String maKho = txtMaKho.getText();
                 if (txtTenKho.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Tên kho không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Tên kho không được bỏ trống");
                     return;
                 }
                 String tenKho = txtTenKho.getText();
                 if (txtMaBoPhan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Mã bộ phận không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Mã bộ phận không được bỏ trống");
                     return;
                 }
                 String maBoPhan = txtMaBoPhan.getText();
                 if (txtGhiChu.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Ghi chú không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Ghi chú không được bỏ trống");
                     return;
                 }
                 String ghiChu = txtGhiChu.getText();
@@ -122,22 +122,22 @@ public class KhoLuuTruF extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (txtMaKho.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Mã kho không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Mã kho không được bỏ trống");
                     return;
                 }
                 String maKho = txtMaKho.getText();
                 if (txtTenKho.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Tên kho không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Tên kho không được bỏ trống");
                     return;
                 }
                 String tenKho = txtTenKho.getText();
                 if (txtMaBoPhan.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Mã bộ phận không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Mã bộ phận không được bỏ trống");
                     return;
                 }
                 String maBoPhan = txtMaBoPhan.getText();
                 if (txtGhiChu.getText().equals("")) {
-                    JOptionPane.showMessageDialog(KhoLuuTruF.this, "Ghi chú không được bỏ trống");
+                    JOptionPane.showMessageDialog(KhoLuuTruForm.this, "Ghi chú không được bỏ trống");
                     return;
                 }
                 String ghiChu = txtGhiChu.getText();

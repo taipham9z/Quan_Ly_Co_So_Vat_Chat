@@ -14,6 +14,7 @@ public class TrangChu extends JFrame{
     private JPanel mainPanel;
     private JLabel labelTrangChu;
     private JButton btnBaoCao;
+    private JButton btnDanhSachPhong;
 
     public TrangChu(){
         setContentPane(mainPanel);
@@ -24,7 +25,7 @@ public class TrangChu extends JFrame{
         btnThongKeTS.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ThongKeCSVCTheoKho().setVisible(true);
+                new CSVCForm().setVisible(true);
                 dispose();
             }
         });
@@ -45,7 +46,7 @@ public class TrangChu extends JFrame{
         btnKhoLuuTru.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new KhoLuuTruF().setVisible(true);
+                new KhoLuuTruForm().setVisible(true);
                 dispose();
             }
         });
@@ -59,7 +60,14 @@ public class TrangChu extends JFrame{
         btnBaoCao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new HienThiBaoCao().setVisible(true);
+                new LichSuThayDoiForm().setVisible(true);
+                dispose();
+            }
+        });
+        btnDanhSachPhong.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new DanhSachPhong().setVisible(true);
                 dispose();
             }
         });

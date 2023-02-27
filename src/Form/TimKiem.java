@@ -26,8 +26,8 @@ public class TimKiem extends JFrame{
     private JTextField txtNuocSanXuat;
     private JButton btnTKTinhTrang;
     private JButton btnTKNuocSx;
-    private static List<CSVCTheoKho> csvc;
-    private static List<CSVCTheoKho> csvc1;
+    private static List<CSVC> csvc;
+    private static List<CSVC> csvc1;
     public TimKiem(){
         setContentPane(mainPanel);
         setSize(1500, 700);
@@ -95,7 +95,7 @@ public class TimKiem extends JFrame{
         btnTrangChu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ThongKeCSVCTheoKho().setVisible(true);
+                new CSVCForm().setVisible(true);
                 dispose();
             }
         });
@@ -116,12 +116,12 @@ public class TimKiem extends JFrame{
         BufferedReader reader = null;
         csvc = new ArrayList<>();
         try {
-            CSVCTheoKho x = null;
+            CSVC x = null;
             reader = new BufferedReader(new FileReader( new File("src\\Data\\CSVC.txt")));
             String line = "";
             while ((line = reader.readLine()) != null) {
                 String[] a = line.split("\\|");
-                x = new CSVCTheoKho(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], Integer.parseInt(a[8]), Integer.parseInt(a[9]));
+                x = new CSVC(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], Integer.parseInt(a[8]), Integer.parseInt(a[9]));
                 csvc.add(x);
             }
 

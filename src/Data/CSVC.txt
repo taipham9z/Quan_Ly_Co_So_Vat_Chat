@@ -1,10 +1,10 @@
 TS01|Cảm biến quang BYD 100-DDT|Mới|Trung Quốc|04/05/2006|Chiếc|MK02|panasonicc1202|1000000|5
 TS02|Máy X. Media P4 2.4 GBhz|Mới|Hàn Quốc|12/04/2010|Cái|MK01|Cảm biến|1000000|5
 TS03|Hamic|Mới|Hàn Quốc|12/04/2010|Cái|MK02|Cảm biến|1000000|5
-TS04|Máy tính CMS|Mới|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5
+TS04|Máy tính CMS|Mới|Hàn Quốc|12/04/2010|Bộ|MK03|Cảm biến|1000000|5
 TS05|Máy tính ISA|Cũ|Hàn Quốc|12/04/2010|Cái|MK01|Cảm biến|1000000|5
-TS06|Máy tính PIV|Mới|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5
+TS06|Máy tính PIV|Mới|Hàn Quốc|12/04/2010|Chiếc|MK03|Cảm biến|1000000|5
 TS07|Máy in thẻ Jare Lon 310|Mới|Hàn Quốc|12/04/2010|Cái|MK05|Cảm biến|1000000|5
-TS08|Máy tính msi|Cũ|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5
+TS08|Máy tính msi|Cũ|Hàn Quốc|12/04/2010|Bộ|MK03|Cảm biến|1000000|5
 TS09|Fujitsu Sever PII-350Mhz|Mới|Hàn Quốc|12/04/2010|Cái|MK04|Cảm biến|1000000|5
-TS05|Máy tính ISA|Cũ|Hàn Quốc|12/04/2010|Cái|MK01|Cảm biến|1000000|5
+TS10|Test|Mới|Việt Nam|12/04/2010|Cái|MK04|Cảm biến|1000000|5

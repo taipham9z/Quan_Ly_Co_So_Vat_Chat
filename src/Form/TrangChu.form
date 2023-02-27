@@ -36,18 +36,6 @@
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="80f89" class="javax.swing.JButton" binding="btnKhoLuuTru">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <minimum-size width="200" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <font size="14"/>
-              <hideActionText value="false"/>
-              <text value="Kho lưu trữ"/>
-            </properties>
-          </component>
           <component id="defde" class="javax.swing.JButton" binding="btnQuanLy">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
@@ -78,7 +66,19 @@
             </constraints>
             <properties>
               <font size="14"/>
-              <text value="Thống kê cơ sở vật chất"/>
+              <text value="Thống kê cơ sở vật &#10;chất trong kho"/>
+            </properties>
+          </component>
+          <component id="80f89" class="javax.swing.JButton" binding="btnKhoLuuTru">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="14"/>
+              <hideActionText value="false"/>
+              <text value="Kho lưu trữ"/>
             </properties>
           </component>
         </children>
@@ -95,7 +95,7 @@
         <children>
           <component id="92f51" class="javax.swing.JButton" binding="btnDangXuat">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <minimum-size width="-1" height="50"/>
               </grid>
             </constraints>
@@ -106,12 +106,12 @@
           </component>
           <hspacer id="d495c">
             <constraints>
-              <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="3" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <hspacer id="fb17a">
             <constraints>
-              <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <component id="67da9" class="javax.swing.JButton" binding="btnBaoCao">
@@ -122,7 +122,18 @@
             </constraints>
             <properties>
               <font size="14"/>
-              <text value="Báo cáo thay đổi"/>
+              <text value="Lịch sử thay đổi"/>
+            </properties>
+          </component>
+          <component id="d7498" class="javax.swing.JButton" binding="btnDanhSachPhong">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="-1" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="14"/>
+              <text value="Danh sách phòng"/>
             </properties>
           </component>
         </children>

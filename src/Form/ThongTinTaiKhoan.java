@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
-import Class.TaiKhoan;
-import Class.TaiKhoanDAO;
+import Class.*;
 public class ThongTinTaiKhoan extends JFrame{
     private JTable tblTaiKhoan;
     private JButton btnTrangChu;
@@ -20,20 +20,25 @@ public class ThongTinTaiKhoan extends JFrame{
     private JTextField txtTenDangNhap;
     private JTextField txtNgayTao;
     private JTextField txtTrangThai;
-    private JTextField txtPhongQuanLy;
     private JPasswordField txtMatKhau;
     private JPanel mainPanel;
     private JTextField txtTenGiaoVien;
     private JTextArea txtNhiemVu;
+    private JComboBox comboBoxPhongQL;
     static TaiKhoanDAO taiKhoanDAO;
     BufferedReader bufferedReader;
     TaiKhoan taiKhoanSelected;
+    List<Phong> phongs = new ArrayList<>();
 
     public ThongTinTaiKhoan() {
         setContentPane(mainPanel);
         setSize(1500, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        readFilePhong();
+        for (int i = 0; i < phongs.size(); i++) {
+            comboBoxPhongQL.addItem(phongs.get(i).getTenPhong());
+        }
         init();
         TaiKhoanTable taiKhoanTable = new TaiKhoanTable();
         tblTaiKhoan.setModel(taiKhoanTable);
@@ -44,10 +49,21 @@ public class ThongTinTaiKhoan extends JFrame{
                 txtTenDangNhap.setText(taiKhoanSelected.getTenDangNhap());
                 txtMatKhau.setText(taiKhoanSelected.getMatKhau());
                 txtTenGiaoVien.setText(taiKhoanSelected.getTenGiaoVien());
-                txtPhongQuanLy.setText(taiKhoanSelected.getPhongQuanLy());
+                comboBoxPhongQL.setSelectedItem(taiKhoanSelected.getPhongQuanLy());
                 txtNgayTao.setText(taiKhoanSelected.getNgayTao());
                 txtTrangThai.setText(taiKhoanSelected.getTrangThai());
                 txtNhiemVu.setText(taiKhoanSelected.getNhiemVu());
+            }
+        });
+
+        comboBoxPhongQL.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                readFilePhong();
+                for (int i = 0; i < phongs.size(); i++) {
+                    comboBoxPhongQL.addItem(phongs.get(i).getTenPhong());
+                }
+
             }
         });
         btnTrangChu.addActionListener(new ActionListener() {
@@ -65,7 +81,7 @@ public class ThongTinTaiKhoan extends JFrame{
                 txtTenDangNhap.setText("");
                 txtMatKhau.setText("");
                 txtTenGiaoVien.setText("");
-                txtPhongQuanLy.setText("");
+                comboBoxPhongQL.setSelectedItem("");
                 txtNgayTao.setText("");
                 txtTrangThai.setText("");
             }
@@ -83,11 +99,11 @@ public class ThongTinTaiKhoan extends JFrame{
                     return;
                 }
                 String matKhau = String.valueOf(txtMatKhau.getPassword());
-                if (txtPhongQuanLy.getText().equals("")) {
+                if (comboBoxPhongQL.getSelectedItem().equals("")) {
                     JOptionPane.showMessageDialog(ThongTinTaiKhoan.this, "Phòng quản lý không được bỏ trống");
                     return;
                 }
-                String phongQuanLy = txtPhongQuanLy.getText();
+                String phongQuanLy = comboBoxPhongQL.getSelectedItem().toString();
                 if (txtNgayTao.getText().equals("")) {
                     JOptionPane.showMessageDialog(ThongTinTaiKhoan.this, "Ngày tạo không được bỏ trống");
                     return;
@@ -124,7 +140,7 @@ public class ThongTinTaiKhoan extends JFrame{
                     }
                 }
                 try {
-                    taiKhoanDAO.writeFile(taiKhoan);
+                    taiKhoanDAO.writeFileAppend(taiKhoan);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -133,7 +149,6 @@ public class ThongTinTaiKhoan extends JFrame{
                 tblTaiKhoan.setModel(taiKhoanTable);
                 txtTenDangNhap.setText("");
                 txtMatKhau.setText("");
-                txtPhongQuanLy.setText("");
                 txtNgayTao.setText("");
                 txtTrangThai.setText("");
             }
@@ -151,11 +166,11 @@ public class ThongTinTaiKhoan extends JFrame{
                     return;
                 }
                 String matKhau = String.valueOf(txtMatKhau.getPassword());
-                if (txtPhongQuanLy.getText().equals("")) {
+                if (comboBoxPhongQL.getSelectedItem().equals("")) {
                     JOptionPane.showMessageDialog(ThongTinTaiKhoan.this, "Phòng quản lý không được bỏ trống");
                     return;
                 }
-                String phongQuanLy = txtPhongQuanLy.getText();
+                String phongQuanLy = comboBoxPhongQL.getSelectedItem().toString();
                 if (txtNgayTao.getText().equals("")) {
                     JOptionPane.showMessageDialog(ThongTinTaiKhoan.this, "Ngày tạo không được bỏ trống");
                     return;
@@ -201,7 +216,6 @@ public class ThongTinTaiKhoan extends JFrame{
                 tblTaiKhoan.setModel(taiKhoanTable);
                 txtTenDangNhap.setText("");
                 txtMatKhau.setText("");
-                txtPhongQuanLy.setText("");
                 txtNgayTao.setText("");
                 txtTrangThai.setText("");
             }
@@ -306,6 +320,24 @@ public class ThongTinTaiKhoan extends JFrame{
             }
         }
 
+    }
+    public void readFilePhong(){
+        try {
+            bufferedReader = new BufferedReader(new FileReader("src\\Data\\Phong.txt"));
+            String line = "";
+            while((line = bufferedReader.readLine())!=null){
+                String []a = line.split("\\|");
+                phongs.add(new Phong(a[0], a[1], a[2], a[3]));
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 
 }

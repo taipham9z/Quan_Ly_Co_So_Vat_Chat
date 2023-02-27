@@ -122,7 +122,7 @@ public class PhieuChuyenTaiSan extends JFrame {
                     }
                 }
                 try {
-                    phieuChuyenDAO.writeFile(phieuChuyen);
+                    phieuChuyenDAO.writeFileAppend(phieuChuyen);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
