@@ -6,4 +6,4 @@ TS04|Máy tính CMS|Mới|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|
 TS08|Máy tính msi|Cũ|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5
 TS05|Máy tính ISA|Cũ|Hàn Quốc|12/04/2010|Cái|MK01|Cảm biến|1000000|5
 TS06|Máy tính PIV|Mới|Hàn Quốc|12/04/2010|Cái|MK03|Cảm biến|1000000|5
-TS07|Máy in thẻ Jare Lon 310|Mới|Hàn Quốc|12/04/2010|Cái|MK05|Cảm biến|1000000|5
+TS07|Máy in thẻ Jare Lon 310|Mới|Hàn Quốc|12/04/2010|Cái|MK05|Cảm biến|1000000|6

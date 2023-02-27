@@ -82,7 +82,7 @@
           </grid>
         </constraints>
         <properties>
-          <font size="16"/>
+          <font size="18"/>
           <text value="Đăng nhập tài khoản"/>
         </properties>
       </component>

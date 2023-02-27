@@ -129,7 +129,7 @@ public class CSVCTheoPhongForm extends JFrame{
         btnTrangChu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new TrangChu().setVisible(true);
+                new CSVCForm().setVisible(true);
                 dispose();
             }
         });

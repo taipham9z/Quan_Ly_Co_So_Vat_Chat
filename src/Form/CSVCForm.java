@@ -1,13 +1,16 @@
 package Form;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.AbstractTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
 import java.util.*;
+import java.util.List;
 
 import Class.*;
 public class CSVCForm extends JFrame{
@@ -36,30 +39,28 @@ public class CSVCForm extends JFrame{
     CSVC CSVCSelected;
     List<KhoLuuTru> khoLuuTrus;
     public CSVCForm(){
-        setContentPane(mainPanel);
-        setSize(1500, 700);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setTitle("Thống kê cơ sở vật chất trong trường");
-        init();
-        TaiSanTable nhanVienTable = new TaiSanTable();
-        tblTaiSan.setModel(nhanVienTable);
-        btnTheoPhong.addActionListener(new ActionListener() {
+        setContentPane(mainPanel); //set nội dụng hiển thị là 1 panel chính
+        setSize(1500, 700); //set kích thước
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //Đặt hành động mặc định khi người dùng đóng cửa sổ
+        setLocationRelativeTo(null);//set vị trí luôn ở chính giữa màn hình
+        btnTrangChu.setBackground(Color.GREEN);
+        btnTheoPhong.setBackground(Color.GREEN);
+        setTitle("Thống kê cơ sở vật chất trong trường");//set tiêu đề
+        init(); // dùng để đưa dữ liệu vào
+        TaiSanTable nhanVienTable = new TaiSanTable(); //tạo 1 biến theo class được định nghĩa từ trước
+        tblTaiSan.setModel(nhanVienTable); // hiển thị bảng dữ liệu theo biến vừa tạo
+        btnTheoPhong.addActionListener(new ActionListener() { //bắt sự kiện cho nút Theo phòng
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CSVCTheoPhongForm().setVisible(true);
-                dispose();
+                new CSVCTheoPhongForm().setVisible(true); //chuyển sang màn hình Theo phòng
+                dispose(); //đóng cửa sổ hiện tại
             }
         });
-//        TaiSanTable taiSanTable = new TaiSanTable();
-//        tblTaiSan.setModel(taiSanTable);
-//        CSVCTheoKhoTable csvcTheoKhoTable = new CSVCTheoKhoTable();
-//        tblTaiSan.setModel(csvcTheoKhoTable);
-        readFile("src\\Data\\KhoLuuTru.txt");
         tblTaiSan.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e) {
-                CSVCSelected = CSVCDAO.getTaiSanList().get(tblTaiSan.getSelectedRow());
+            public void mouseClicked(MouseEvent e) { //bắt sự kiện khi click chuột vào 1 doòng trong bảng
+                CSVCSelected = CSVCDAO.getTaiSanList().get(tblTaiSan.getSelectedRow()); //gán csvc được chọn vào biến
+                //set các ô text là thông tin của csvc được chọn
                 txtMaTs.setText(CSVCSelected.getMaTs());
                 txtTenTs.setText(CSVCSelected.getTenTs());
                 txtTinhTrang.setText(CSVCSelected.getTinhTrang());
@@ -72,9 +73,10 @@ public class CSVCForm extends JFrame{
                 txtSoLuong.setText(String.valueOf(CSVCSelected.getSoLuong()));
             }
         });
-        btnThem.addActionListener(new ActionListener() {
+        btnThem.addActionListener(new ActionListener() { //bắt sự kiện nút Thêm
             @Override
             public void actionPerformed(ActionEvent e) {
+                //kiểm tra các ô text không được bỏ trống
                 if(txtMaTs.getText().equals("")){
                     JOptionPane.showMessageDialog(CSVCForm.this, "Mã tài sản không được bỏ trống");
                     return;
@@ -126,8 +128,9 @@ public class CSVCForm extends JFrame{
                     return;
                 }
                 int soLuong = Integer.parseInt(txtSoLuong.getText());
-
+                //tạo biến csvc lưu lại những thông tin từ ô text
                 CSVC CSVC = new CSVC(maTs, tenTs, tinhTrang, nuocSx, namSx, donViTinh, noiLuuTru, thongSo, donGia, soLuong);
+                //ghi ra báo cáo
                 BufferedWriter bufferedWriter = null;
                 String noiDung = "\nThêm CSVC: " + tenTs + "|" + java.time.LocalDate.now() + "|Không";
                 try {
@@ -142,11 +145,13 @@ public class CSVCForm extends JFrame{
                         throw new RuntimeException(ex);
                     }
                 }
+                //bắt đầu ghi ra file
                 try {
                     CSVCDAO.writeFileAppend(CSVC, "src\\Data\\CSVC.txt");
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+                // reset lại dữ liệu
                 init();
                 TaiSanTable taiSanTable = new TaiSanTable();
                 tblTaiSan.setModel(taiSanTable);
@@ -162,9 +167,10 @@ public class CSVCForm extends JFrame{
                 txtSoLuong.setText("");
             }
         });
-        btnSua.addActionListener(new ActionListener() {
+        btnSua.addActionListener(new ActionListener() { //bắt sự kiện nút Sửa
             @Override
             public void actionPerformed(ActionEvent e) {
+                //kiểm tra các ô text không bỏ trống
                 try {
                     if(txtMaTs.getText().equals("")){
                         JOptionPane.showMessageDialog(CSVCForm.this, "Mã tài sản không được bỏ trống");
@@ -217,7 +223,9 @@ public class CSVCForm extends JFrame{
                         return;
                     }
                     int soLuong = Integer.parseInt(txtSoLuong.getText());
+                    // gán csvc được chọn từ dữ liệu các ô text
                     CSVCSelected = new CSVC(maTs, tenTs, tinhTrang, nuocSx, namSx, donViTinh, noiLuuTru, thongSo, donGia, soLuong);
+                    //ghi ra báo cáo
                     BufferedWriter bufferedWriter = null;
                     String noiDung = "\nSửa CSVC: " + tenTs + "|" + java.time.LocalDate.now() + "|Không";
                     try {
@@ -232,7 +240,9 @@ public class CSVCForm extends JFrame{
                             throw new RuntimeException(ex);
                         }
                     }
+                    //bắt đầu thay thế trong file
                     CSVCDAO.replaceCSVC(CSVCSelected, tblTaiSan.getSelectedRow());
+                    //reset lại dữ liệu
                     init();
                     TaiSanTable nhanVienTable = new TaiSanTable();
                     tblTaiSan.setModel(nhanVienTable);
@@ -251,10 +261,11 @@ public class CSVCForm extends JFrame{
                 }
             }
         });
-        btnXoa.addActionListener(new ActionListener() {
+        btnXoa.addActionListener(new ActionListener() { //bắt sự kiện nút Xoá
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    //xuất báo cáo
                     BufferedWriter bufferedWriter = null;
                     String noiDung = "\nXoá CSVC: " + CSVCDAO.getTaiSanList().get(tblTaiSan.getSelectedRow()).getTenTs() + "|" + java.time.LocalDate.now() + "|Không";
                     try {
@@ -269,7 +280,9 @@ public class CSVCForm extends JFrame{
                             throw new RuntimeException(ex);
                         }
                     }
+                    //bắt đầu xoá dữ liệu trong file
                     CSVCDAO.deleteCSVC(tblTaiSan.getSelectedRow());
+                    //reset dữ liệu
                     init();
                     TaiSanTable nhanVienTable = new TaiSanTable();
                     tblTaiSan.setModel(nhanVienTable);
@@ -288,9 +301,10 @@ public class CSVCForm extends JFrame{
                 }
             }
         });
-        btnReset.addActionListener(new ActionListener() {
+        btnReset.addActionListener(new ActionListener() { //bắt sự kiện nút reset
             @Override
             public void actionPerformed(ActionEvent e) {
+                //cập nhật lại dữ liệu bảng, đưa các ô text về trống
                 TaiSanTable nhanVienTable = new TaiSanTable();
                 tblTaiSan.setModel(nhanVienTable);
                 txtMaTs.setText("");
@@ -305,18 +319,18 @@ public class CSVCForm extends JFrame{
                 txtSoLuong.setText("");
             }
         });
-        btnTrangChu.addActionListener(new ActionListener() {
+        btnTrangChu.addActionListener(new ActionListener() { //bắt sự kiện nút trang chủ
             @Override
             public void actionPerformed(ActionEvent e) {
-                new TrangChu().setVisible(true);
-                dispose();
+                new TrangChu().setVisible(true); //hiển thị màn hình trang chủ
+                dispose(); //thoát màn hình trước
             }
         });
-        btnTimKiem.addActionListener(new ActionListener() {
+        btnTimKiem.addActionListener(new ActionListener() { //bắt sự kiện nút tìm kiếm
             @Override
             public void actionPerformed(ActionEvent e) {
-                new TimKiem().setVisible(true);
-                dispose();
+                new TimKiem().setVisible(true); //hiển thị màn hình tìm kiếm
+                dispose(); //thoát màn hình trước
             }
         });
     }
@@ -324,23 +338,23 @@ public class CSVCForm extends JFrame{
     public static final String DATA_FILE_PATH_NHAN_VIEN = "src\\Data\\CSVC.txt";
     File file = new File(DATA_FILE_PATH_NHAN_VIEN);
     String absolutePath = file.getAbsolutePath();
-    public void loadDataFromFile() throws IOException {
+    public void loadDataFromFile() throws IOException { //lấy dữ liệu từ file
         try {
             CSVC x = null;
             bufferedReader = new BufferedReader(new FileReader(absolutePath));
             String line = "";
-            while ((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) != null) { //trong khi line ko rỗng, thì tiếp tục đọc file
                 String[] a = line.split("\\|");
                 x = new CSVC(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], Integer.parseInt(a[8]), Integer.parseInt(a[9]));
-                CSVCDAO.getTaiSanList().add(x);
+                CSVCDAO.getTaiSanList().add(x); //lưu dữ liệu vừa đọc vào list
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            bufferedReader.close();
+            bufferedReader.close(); //đóng file
         }
     }
-    public void init() {
+    public void init() { // lấy dữ liệu từ file và làm mới lớp DAO
         CSVCDAO = new CSVCDAO();
         try {
             loadDataFromFile();
@@ -351,45 +365,23 @@ public class CSVCForm extends JFrame{
 
 
     }
-    public void readFile(String file){
-        BufferedReader reader = null;
-        khoLuuTrus= new ArrayList<>();
-        try {
-            KhoLuuTru x = null;
-            reader = new BufferedReader(new FileReader(file));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String[] a = line.split("\\|");
-                x = new KhoLuuTru(a[0], a[1], a[2], a[3]);
-                khoLuuTrus.add(x);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-    public static class TaiSanTable extends AbstractTableModel {
+    public static class TaiSanTable extends AbstractTableModel { //khai báo class bảng kế thừa lớp AbstractTableModel
+        //khai báo tên các cột
         private String[] COLUMNS = {"Mã tài sản", "Tên tài sản", "Tình trạng", "Nước sản xuất", "Năm sản xuất", "Đơn vị tính", "Nơi lưu trữ", "Thông số kĩ thuật", "Đơn giá", "Số lượng"};
-        private List<CSVC> CSVCList = CSVCDAO.getTaiSanList();
+        private List<CSVC> CSVCList = CSVCDAO.getTaiSanList(); //dữ liệu cho các hàng
 
         @Override
         public int getRowCount() {
             return CSVCList.size();
-        }
+        } //trả về số hàng
 
         @Override
         public int getColumnCount() {
             return COLUMNS.length;
-        }
+        } //trả về số cột
 
         @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
+        public Object getValueAt(int rowIndex, int columnIndex) { //giá trị tại các cột
             return switch (columnIndex){
                 case 0 -> CSVCList.get(rowIndex).getMaTs();
                 case 1 -> CSVCList.get(rowIndex).getTenTs();
@@ -408,16 +400,16 @@ public class CSVCForm extends JFrame{
         @Override
         public String getColumnName(int column) {
             return COLUMNS[column];
-        }
+        } //tên các cột
 
-        @Override
-        public Class<?> getColumnClass(int columnIndex) {
-            if(getValueAt(0, columnIndex) != null){
-                return getValueAt(0, columnIndex).getClass();
-            }else{
-                return Object.class;
-            }
-        }
+//        @Override
+//        public Class<?> getColumnClass(int columnIndex) {
+//            if(getValueAt(0, columnIndex) != null){
+//                return getValueAt(0, columnIndex).getClass();
+//            }else{
+//                return Object.class;
+//            }
+//        }
 
     }
 }

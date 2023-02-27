@@ -1,4 +1,8 @@
-tên phòng|mã phòng|tên giáo viên|vị trí
-tên|mã phòng|tên giáo viên|vị trí
 Phòng thực hành 1|201|giaovien1|Tầng 2 - A1
 Phòng thực hành 2|202|giaovien2|Tầng 2 - A1
+Phòng thực hành 3|201|giaovien1|Tầng 2 - A1
+Phòng thực hành 4|202|giaovien2|Tầng 2 - A1
+Phòng thực hành 5|201|giaovien1|Tầng 2 - A1
+Phòng thực hành 6|202|giaovien2|Tầng 2 - A1
+Phòng thực hành 7|203|giaovien3|Tầng 2 - A1
+Phòng thực hành 8|205|giaovien5|Tầng 2 - A3

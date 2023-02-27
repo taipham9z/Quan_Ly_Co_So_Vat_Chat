@@ -90,9 +90,9 @@ public class TaiKhoan {
     public static final String DATA_FILE_PATH_QUAN_TRI = "src\\Data\\TaiKhoanQuanTri.txt";
     File file = new File(DATA_FILE_PATH_QUAN_TRI);
     String absolutePath = file.getAbsolutePath();
-    public int readFileTaiKhoanQuanTri(){
+    public int readFileTaiKhoanQuanTri(){ //dùng để đọc file TaiKhoanQuanTri cho quản trị viên, sau đó kiểm tra xem có đúng tài khoản không
         BufferedReader reader = null;
-        int check = 0, i;
+        int check = 0;
         try{
             reader = new BufferedReader(new FileReader(absolutePath));
             String line = "";
@@ -108,6 +108,6 @@ public class TaiKhoan {
         }catch(Exception ex){
             ex.printStackTrace();
         }
-        return 1;
+        return check;
     }
 }

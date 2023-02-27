@@ -1,46 +1,29 @@
-ThêmMáy tính PIV|2023-02-26|Không
-ThêmMáy in thẻ Jare Lon 310|2023-02-26|Không
-Thêm CSVC: Máy tính ISA|2023-02-26|Không
-Thêm CSVC: Máy X. Media P4 2.4 GBhz|2023-02-27|Không
-Xoá CSVC: Máy tính msi|2023-02-27|Không
-Xoá CSVC: Máy tính CMS|2023-02-27|Không
-Xoá CSVC: Máy tính CMS|2023-02-27|Không
-Xoá CSVC: Máy tính ISA|2023-02-27|Không
-Xoá CSVC: Máy tính ISA|2023-02-27|Không
-Xoá CSVC: Máy tính ISA|2023-02-27|Không
-Xoá CSVC: Máy tính ISA|2023-02-27|Không
-Thêm CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Xoá CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Sửa CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Xoá CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Thêm CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Sửa CSVC: Fujitsu Sever PII-350Mhz|2023-02-27|Không
-Sửa CSVC: Test|2023-02-27|Không
-Thêm CSVC: Test|2023-02-27|Không
-Thêm CSVC Test|2023-02-27|Không
-Thêm CSVC Test|2023-02-27|Không
-Xoá CSVC Test|2023-02-27|Không
-Xoá CSVC Test|2023-02-27|Không
-Xoá CSVC: Test|2023-02-27|Không
-Thêm CSVC Test|2023-02-27|Không
-Xoá CSVC Test|2023-02-27|Không
-Thêm tài khoản: giaovien5|2023-02-27|Không
-Xoá tài khoản: 
-giaovien5|12341234|Nguyễn Văn E|Phòng thực hành 5|03/11/2006|Khoá|Trông coi và quản lý tài sản phòng thực hành 1 (Nếu có bất cứ sự cố hãy liên hệ admin|2023-02-27|Không
-Thêm tài khoản: giaovien6|2023-02-27|Không
-Sửa tài khoản: giaovien7|2023-02-27|Không
-Sửa CSVC: Máy tính PIV|2023-02-27|Không
-Sửa CSVC: Máy tính msi|2023-02-27|Không
-Sửa CSVC: Máy tính CMS|2023-02-27|Không
-Thêm phòng: Phòng học lý thuyết 4|2023-02-27|Không
-Thêm phòng: Phòng học lý thuyết 4|2023-02-27|Không
-Thêm phòng: Phòng học lý thuyết 4|2023-02-27|Không
-Xoá phòng: Phòng học lý thuyết 5|2023-02-27|Không
-Thêm tài khoản: giaovien6|2023-02-27|Không
-Thêm phòng: tên phòng|2023-02-27|Không
-Thêm phòng: tên phòng|2023-02-27|Không
-Xoá phòng: tên phòng|2023-02-27|Không
-Sửa phòng: tên|2023-02-27|Không
 Thêm phòng: Phòng thực hành 1|2023-02-27|Không
 Thêm phòng: Phòng thực hành 1|2023-02-27|Không
 Sửa phòng: Phòng thực hành 2|2023-02-27|Không
+Thêm CSVC: Test|2023-02-28|Không
+Xoá CSVC: Test|2023-02-28|Không
+Sửa CSVC: Test|2023-02-28|Không
+Sửa CSVC: Test|2023-02-28|Không
+Thêm phiếu: MP05|2023-02-28|Không
+Xoá phiếu mã: MP05|2023-02-28|Không
+Sửa phiếu mã: MP05|2023-02-28|Không
+Sửa phiếu mã: MP05|2023-02-28|Không
+Thêm kho: Kho lưu trữ trường|2023-02-28|Không
+Xoá kho: Kho lưu trữ trường|2023-02-28|Không
+Sửa kho: Kho lưu trữ trường|2023-02-28|Không
+Thêm tài khoản: giaovien6|2023-02-28|Không
+Xoá tài khoản: giaovien6|2023-02-28|Không
+Sửa tài khoản: giaovien6|2023-02-28|Không
+Xoá tài khoản: giaovien6|2023-02-28|Không
+Thêm phòng: Phòng thực hành 7|2023-02-28|Không
+Thêm phòng: Phòng thực hành 7|2023-02-28|Không
+Xoá phòng: Phòng thực hành 7|2023-02-28|Không
+Sửa phòng: Phòng thực hành 7|2023-02-28|Không
+Thêm tài khoản: giaovien6|2023-02-28|Không
+Sửa tài khoản: giaovien6|2023-02-28|Không
+Thêm tài khoản: giaovien6|2023-02-28|Không
+Sửa tài khoản: giaovien6|2023-02-28|Không
+Xoá tài khoản: giaovien6|2023-02-28|Không
+Thêm phòng: Phòng thực hành 7|2023-02-28|Không
+Sửa phòng: Phòng thực hành 8|2023-02-28|Không

@@ -1,6 +1,7 @@
 package Form;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,6 +22,8 @@ public class TrangChu extends JFrame{
         setSize(600, 500);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        //Test
+
         //labelTrangChu.setText("<html><font color='red'>Trang chủ</font></html>");
         btnThongKeTS.addActionListener(new ActionListener() {
             @Override

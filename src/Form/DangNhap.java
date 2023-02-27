@@ -21,17 +21,18 @@ public class DangNhap extends JFrame {
         setSize(550, 250); //set kích thước màn hình
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //set chức năng đóng
         setLocationRelativeTo(null); //set vị trí là chính giữa màn hình khi xuất hiện (nếu không có sẽ xuất hiện ở góc trên bên trái)
+        //bắt lỗi
         try {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"); //thay đổi giao diện sang kiểu Nimbus
         } catch (Exception e) {
             e.printStackTrace();
         }
-        SwingUtilities.updateComponentTreeUI(DangNhap.this);
+        SwingUtilities.updateComponentTreeUI(DangNhap.this); // cập nhật giao diện người dùng ở trển
         btnDangNhap.addActionListener(new ActionListener() { //thêm sự kiện cho nút đăng nhập
             @Override
             public void actionPerformed(ActionEvent e) {
-                TaiKhoan taiKhoan = new TaiKhoan();
-                taiKhoan.setTenDangNhap(txtTenDangNhap.getText());
+                TaiKhoan taiKhoan = new TaiKhoan(); //tạo biến tài khoản
+                taiKhoan.setTenDangNhap(txtTenDangNhap.getText()); //lấy giá trị từ ô text
                 taiKhoan.setMatKhau(String.valueOf(txtMatKhau.getPassword()));
                 int check = taiKhoan.readFileTaiKhoanQuanTri(); //hàm kiểm tra tài khoản xem có đúng tài khoản quản trị không, đúng gán = 1
                 if (check != 1) {
