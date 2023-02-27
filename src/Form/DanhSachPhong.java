@@ -253,7 +253,4 @@ public class DanhSachPhong extends JFrame{
             }
         }
     }
-    public static void main(String[] args) {
-        new DanhSachPhong().setVisible(true);
-    }
 }
