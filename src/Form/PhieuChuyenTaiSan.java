@@ -33,7 +33,7 @@ public class PhieuChuyenTaiSan extends JFrame {
 
     public PhieuChuyenTaiSan() {
         setContentPane(mainPanel);
-        setSize(1500, 700);
+        setSize(1000, 700);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         init();
