@@ -145,7 +145,7 @@
         <properties>
           <font size="14"/>
         </properties>
-        <border type="none"/>
+        <border type="none" title="Tài khoản"/>
         <children>
           <component id="aa79b" class="javax.swing.JTable" binding="tblTaiKhoan">
             <constraints/>
